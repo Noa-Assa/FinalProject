@@ -1,0 +1,16 @@
+{
+	"Tel-Aviv": [["Rishon-Lezion", 5.6], ["Ramat-Gan", 4.949], ["Zefat", 7.597], ["Netanya", 0.086], ["Ashdod", 0.056], ["Rehovot", 3.403]], 
+	"Ramat-Gan": [["Rishon-Lezion", 9.536], ["Tel-Aviv", 4.949], ["Bat-Yam", 9.872], ["Holon", 5.828], ["Zefat", 4.343], ["Netanya", 6.953], ["Rehovot", 4.638]], 
+	"Herzliya": [["Eilat", 3.758]], 
+	"Holon": [["Eilat", 2.302], ["Ramat-Gan", 5.828], ["Beer-Sheva", 5.337], ["Zefat", 1.914], ["Rehovot", 5.549]], 
+	"Bat-Yam": [["Ramat-Gan", 9.872], ["Eilat", 9.243], ["Zefat", 9.634], ["Netanya", 5.66]], 
+	"Ashdod": [["Rishon-Lezion", 3.907], ["Tel-Aviv", 0.056], ["Zefat", 9.495], ["Netanya", 7.585], ["Rehovot", 7.74]], 
+	"Beer-Sheva": [["Holon", 5.337], ["Zefat", 1.453], ["Netanya", 8.571], ["Rehovot", 7.559]], 
+	"Eilat": [["Rishon-Lezion", 7.291], ["Herzliya", 3.758], ["Bat-Yam", 9.243], ["Haifa", 3.769], ["Holon", 2.302], ["Zefat", 7.114], ["Netanya", 0.696]], 
+	"Rishon-Lezion": [["Eilat", 7.291], ["Ramat-Gan", 9.536], ["Tel-Aviv", 5.6], ["Zefat", 5.696], ["Netanya", 2.762], ["Ashdod", 3.907], ["Rehovot", 4.234]], 
+	"Rehovot": [["Rishon-Lezion", 4.234], ["Jerusalem", 6.609], ["Ramat-Gan", 4.638], ["Beer-Sheva", 7.559], ["Tel-Aviv", 3.403], ["Holon", 5.549], ["Netanya", 4.869], ["Ashdod", 7.74]], 
+	"Jerusalem": [["Zefat", 9.529], ["Netanya", 4.51], ["Rehovot", 6.609]], 
+	"Zefat": [["Rishon-Lezion", 5.696], ["Eilat", 7.114], ["Jerusalem", 9.529], ["Ramat-Gan", 4.343], ["Beer-Sheva", 1.453], ["Tel-Aviv", 7.597], ["Bat-Yam", 9.634], ["Holon", 1.914], ["Netanya", 5.316], ["Ashdod", 9.495]], 
+	"Netanya": [["Rishon-Lezion", 2.762], ["Eilat", 0.696], ["Jerusalem", 4.51], ["Beer-Sheva", 8.571], ["Ramat-Gan", 6.953], ["Tel-Aviv", 0.086], ["Bat-Yam", 5.66], ["Haifa", 4.618], ["Zefat", 5.316], ["Ashdod", 7.585], ["Rehovot", 4.869]], 
+	"Haifa": [["Netanya", 4.618], ["Eilat", 3.769]]
+}
