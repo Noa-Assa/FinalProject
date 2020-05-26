@@ -1,4 +1,4 @@
-from linkedList import SortedLinkedList
+from data_structures.linkedlist_sorted import SortedLinkedList
 
 
 class SortedStack:
@@ -16,6 +16,7 @@ class SortedStack:
             return None
         top_element = self.stack.head
         self.stack.head = top_element.next
+        self.stack.list_size -=1
         return top_element.data
 
     def top(self):
@@ -28,3 +29,5 @@ class SortedStack:
 
     def __str__(self):
         return self.stack.__str__()
+
+

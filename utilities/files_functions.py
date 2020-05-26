@@ -1,9 +1,11 @@
 import json
 import pandas as pd
-from graph import WeightedGraph
+from data_structures.weighted_graph import WeightedGraph
 
 
-def save_graph_to_json(graph, file_name):
+def save_graph_to_json(graph, file_name=None):
+    if file_name is None:
+        file_name = input("Enter file name:\n")
     serialized_graph = graph.serialize()
     try:
         with open('{}.json'.format(file_name), 'w') as saved_graph:
@@ -35,7 +37,7 @@ def load_csv_file(file_name):
 
 def save_to_json(data, file_name):
     try:
-        with open('{}.json'.format(file_name), 'w') as saved_json:
+        with open('{}.json'.format(file_name), 'a') as saved_json:
             json.dump(data, saved_json)
         saved_json.close()
     except:

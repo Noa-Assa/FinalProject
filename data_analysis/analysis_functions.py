@@ -1,6 +1,8 @@
-from exploring_data_structure import apps_table, user_reviews_table
+from data_analysis.basic_exploration import apps_table, user_reviews_table
 import numpy as np
 
+
+# This script was a part of the project, but i have decided not to implement it in my program.
 
 def get_app_details_by_letter(letter):
     letter = str.upper(letter)

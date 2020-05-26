@@ -1,14 +1,14 @@
-from sortable import Sortable
+from data_structures.sortable import Sortable
 
 
 class Student(Sortable):
-    def __init__(self, id, first_name, last_name, age, gender, average):
-        self.id = self.set_id(id)
-        self.first_name = first_name
-        self.last_name = last_name
-        self.age = self.set_age(age)
-        self.gender = self.set_gender(gender)
-        self.average = self.set_average(average)
+    def __init__(self, id=None, first_name=None, last_name=None, age=None, gender=None, average=None):
+        self.id = self.set_id(id if id is not None else input("Enter ID: "))
+        self.first_name = first_name if first_name is not None else input("Enter first name: ")
+        self.last_name = last_name if last_name is not None else input("Enter last name: ")
+        self.age = self.set_age(age if age is not None else int(input("Enter age: ")))
+        self.gender = self.set_gender(gender if gender is not None else int(input("Enter gender: 0 - female, 1 - male: ")))
+        self.average = self.set_average(average if average is not None else int(input("Enter average: ")))
 
     def __str__(self):
         return """
@@ -52,6 +52,5 @@ class Student(Sortable):
         if (average < 0) or (average > 100):
             raise Exception('Invalid Input: average MUST be between 0-100')
         return average
-
 
 

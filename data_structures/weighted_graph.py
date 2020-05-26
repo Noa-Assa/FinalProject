@@ -1,5 +1,7 @@
 from collections import deque
-from linkedList import WeightedLinkedList
+from data_structures.linkedlist_weighted import WeightedLinkedList
+import ast
+import utilities.files_functions as ff
 
 
 class WeightedGraph:
@@ -31,7 +33,15 @@ class WeightedGraph:
                 temp_vertex = temp_vertex.next
         return all_edges
 
-    def add_vertex(self, vertex, connections):
+    def add_vertex(self, vertex=None, connections=None):
+        if vertex is None:
+            vertex = input("Enter city:\n")
+            connections = ast.literal_eval(input("""
+Enter all neighbors and time between:\n
+---for example---
+if you add Tel-Aviv, you will enter: \n
+[['Ramat-Gan', 7],['Givataaim', 6]]
+-----------------\n"""))
         new_connections = WeightedLinkedList()
         for connection in connections:
             neighbor = connection[0]
@@ -57,7 +67,9 @@ class WeightedGraph:
         if current_node is None:
             self.dict[vertex].add_new_head(neighbor, weight)
 
-    def delete_vertex(self, vertex):
+    def delete_vertex(self, vertex= None):
+        if vertex is None:
+            vertex = input("Enter city:\n")
         if vertex not in self.dict:
             return
         connection = self.dict[vertex].head
@@ -74,7 +86,10 @@ class WeightedGraph:
             current_node = current_node.next
         return dict_of_connections
 
-    def bfs(self, source, target):
+    def bfs(self, source=None, target=None):
+        if source is None:
+            source = input("Enter starting city:\n")
+            target = input("Enter destination:\n")
         if source not in self.dict:
             return print('the vertex ' + source + ' not in vertex keys')
         if target not in self.dict:
@@ -96,7 +111,10 @@ class WeightedGraph:
                     queue.append((item, connections + [item], weight + temp_dict[item]))
         return results
 
-    def shortest_path(self, source, target):
+    def shortest_path(self, source=None, target=None):
+        if source is None:
+            source = input("Enter starting city:\n")
+            target = input("Enter destination:\n")
         results = self.bfs(source, target)
         shortest_paths = []
         if not not results:
@@ -117,6 +135,9 @@ class WeightedGraph:
             list.append([current_node.data, current_node.weight])
             current_node = current_node.next
         return list
+
+    def save_graph(self):
+        ff.save_graph_to_json(self)
 
     def serialize(self):
         serialized = {}
