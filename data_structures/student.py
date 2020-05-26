@@ -28,7 +28,6 @@ class Student(Sortable):
             return "Female"
         return "Male"
 
-    # Decision to work with Exception to make sure student is not added incorrectly.
     @staticmethod
     def set_id(id):
         if len(str(id)) != 9:

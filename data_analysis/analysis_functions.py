@@ -1,16 +1,15 @@
-from data_analysis.basic_exploration import apps_table, user_reviews_table
 import numpy as np
 
 
 # This script was a part of the project, but i have decided not to implement it in my program.
 
-def get_app_details_by_letter(letter):
+def get_app_details_by_letter(letter, table):
     letter = str.upper(letter)
-    return apps_table[apps_table['App'].str.upper().str.startswith(letter)].drop_duplicates()
+    return table[table['App'].str.upper().str.startswith(letter)].drop_duplicates()
 
 
-def get_average_polarity(app_name):
-    avg = user_reviews_table[user_reviews_table['App'] == app_name]['Sentiment_Polarity'].mean()
+def get_average_polarity(app_name, table):
+    avg = table[table['App'] == app_name]['Sentiment_Polarity'].mean()
     if np.isnan(avg):
         return None
     return avg

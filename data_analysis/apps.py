@@ -24,12 +24,10 @@ class Apps:
         return aggregated_category
 
     def rating_std_for_agg_category(self):
-        # Built for visual purpose only, see usage under script 'visual.analysis'
         rating_std = self.aggregation_for_category_analysis()[('Rating', 'std')].reset_index()
         return rating_std
 
     def aggregation_for_genre_analysis(self):
-        # Built for visual purpose only, see usage under script 'visual.analysis'
         aggregated_genre = self.table[['App', 'Rating', 'Genres']].drop_duplicates()
         aggregated_genre = aggregated_genre.groupby('Genres').agg({'Rating': 'mean'}).reset_index().dropna()
         return aggregated_genre

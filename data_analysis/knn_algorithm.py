@@ -11,11 +11,9 @@ def get_kAcc(startK, endK, x_train, y_train, x_test, y_test):
     try:
         if startK <= 0:
             return 'Invalid Input: Start K must be bigger than 0.'
-        # bestK_acc = {'accuracy': 0.0,
-        #              'best_k': 0}
         for k in range(startK, endK + 1):
             start_time = datetime.now()
-            print('Start checking KNN with K = %s' %k)
+            print('\n\nStart checking KNN with K = %s' %k)
             print('at: ', start_time)
             scalar_x = StandardScaler()
             x_train = scalar_x.fit_transform(x_train)
@@ -25,16 +23,10 @@ def get_kAcc(startK, endK, x_train, y_train, x_test, y_test):
             predict_y = classifier.predict(x_test)
             temp = accuracy_score(y_test, predict_y)
             iteration_length = datetime.now() - start_time
-            allK_acc = {'accuracy': temp,
-                         'best_k': k,
-                         'iteration_length': iteration_length}
+            allK_acc = {'accuracy': temp, 'k': k, 'iteration_length_by_min': divmod(iteration_length.total_seconds(), 60)[0]}
             ff.save_to_json(allK_acc, 'allK_acc')
-            # if temp > bestK_acc['accuracy']:
-            #     bestK_acc['accuracy'] = temp
-            #     bestK_acc['best_k'] = k
-            print('End checking KNN with K = %s' %k)
-            print('Iteration length: ', iteration_length, '\n')
-#        return bestK_acc
+            print('\nEnd checking KNN with K = %s' %k)
+            print('\nIteration length (by minutes): ', iteration_length, '\n')
         return
     except:
         return 'Error- could not get_kAcc'
@@ -47,10 +39,11 @@ def knn():
     if (test_size >= 1) or (test_size <= 0):
         raise Exception('Invalid Input: Test size must be a decimal fraction between 0-100.')
     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=test_size)
-    startK = int(input("Which K would like to check?\nfirst K: "))
+    startK = int(input("\nWhich K would like to check?\nfirst K: "))
     endK = int(input("last K: "))
     if startK > endK:
         raise Exception('Invalid Input: last K can be bigger or equal to first one, but not smaller.')
     get_kAcc(startK, endK, x_train, y_train, x_test, y_test)
+
 
 
